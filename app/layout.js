@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import { Navigation } from "@/components/navigation"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toggle } from "@/components/toggle"
 
@@ -31,8 +31,11 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            <div><Toggle /></div>
-        {children}
+            <Navigation />
+            <main className="container mx-auto">
+            {children}
+            </main>
+       
         </ThemeProvider>
       </body>
     </html>
