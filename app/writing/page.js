@@ -1,9 +1,9 @@
 
 import Link from 'next/link'
-import { getAllMdxContent } from '@/lib/mdx-utils'
+import { getAllWritingContent } from '@/lib/content-utils'
 
 export default async function Writing() {
-  const posts = await getAllMdxContent('writing')
+  const posts = await getAllWritingContent()
   
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -15,7 +15,7 @@ export default async function Writing() {
         <div className="grid gap-6">
           {posts.map(({ slug, frontmatter }) => (
             <article key={slug} className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-              <Link href={`/writing/${slug.split('/').pop()}`}>
+              <Link href={`/writing/${slug}`}>
                 <h2 className="text-2xl font-semibold mb-2 hover:text-blue-600 transition-colors">
                   {frontmatter.title}
                 </h2>

@@ -1,20 +1,18 @@
 import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import { mdxComponents } from '@/lib/mdx-components'
-import { getMdxContent, getMdxFiles } from '@/lib/mdx-utils'
+import { getWorkContent, getWorkSlugs } from '@/lib/content-utils'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const files = await getMdxFiles('work')
-  return files.map(({ slug }) => ({
-    slug: slug.split('/').pop(), // Get the last part of the slug
-  }))
+  const slugs = await getWorkSlugs()
+  return slugs
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
   
   try {
-    const { frontmatter } = await getMdxContent(slug, 'work')
+    const { frontmatter } = await getWorkContent(slug)
     return {
       title: frontmatter.title || `Work - ${slug}`,
       description: frontmatter.description || '',
@@ -30,7 +28,7 @@ export default async function WorkPage({ params }) {
   const { slug } = await params
   
   try {
-    const { source, frontmatter } = await getMdxContent(slug, 'work')
+    const { source, frontmatter } = await getWorkContent(slug)
     
     return (
       <article className="max-w-4xl mx-auto px-4 py-8">

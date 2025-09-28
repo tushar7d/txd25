@@ -1,20 +1,19 @@
 import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import { mdxComponents } from '@/lib/mdx-components'
-import { getMdxContent, getMdxFiles } from '@/lib/mdx-utils'
+import { getWritingContent, getWritingSlugs } from '@/lib/content-utils'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const files = await getMdxFiles('writing')
-  return files.map(({ slug }) => ({
-    slug: slug.split('/').pop(), // Get the last part of the slug
-  }))
+  const slugs = await getWritingSlugs()
+  return slugs
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
-  
+  const decodedSlug = decodeURIComponent(slug)
+
   try {
-    const { frontmatter } = await getMdxContent(slug, 'writing')
+    const { frontmatter } = await getWritingContent(decodedSlug)
     return {
       title: frontmatter.title || `Writing - ${slug}`,
       description: frontmatter.description || '',
@@ -28,9 +27,10 @@ export async function generateMetadata({ params }) {
 
 export default async function WritingPage({ params }) {
   const { slug } = await params
-  
+  const decodedSlug = decodeURIComponent(slug)
+
   try {
-    const { source, frontmatter } = await getMdxContent(slug, 'writing')
+    const { source, frontmatter } = await getWritingContent(decodedSlug)
     
     return (
       <article className="max-w-4xl mx-auto px-4 py-8">
