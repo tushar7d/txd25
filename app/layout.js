@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <Navigation />
-            <main className="container mx-auto">
+            <main className="max-w-[960px] mx-auto">
             {children}
             </main>
        
