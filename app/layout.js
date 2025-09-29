@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-[1440px] mx-auto`}
       >
          <ThemeProvider
             attribute="class"
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <Navigation />
-            <main className="max-w-[960px] mx-auto">
+            <main className=" mx-auto px-3 md:px-12">
             {children}
             </main>
        

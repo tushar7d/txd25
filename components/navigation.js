@@ -26,7 +26,7 @@ export function Navigation() {
 
   return (
     <div className="border-b">
-      <nav className="max-w-[960px] mx-auto flex justify-between items-center p-4">
+      <nav className=" mx-auto flex justify-between items-center p-4 px-12">
         <img
           src="/td.svg"
           alt="logo"
