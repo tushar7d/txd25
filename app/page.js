@@ -11,6 +11,7 @@ export default async function Home() {
   const featuredWork = workContent.filter(item => item.frontmatter.featured).slice(0, 2)
   const featuredWriting = writingContent.filter(item => item.frontmatter.featured).slice(0, 2)
 
+  console.log(featuredWork)
   return (
     <div className="p-3 md:p-4 flex  flex-col gap-24 ">
       <section className="mt-12">
