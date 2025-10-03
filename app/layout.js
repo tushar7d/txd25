@@ -1,17 +1,19 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { Navigation } from "@/components/navigation"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Toggle } from "@/components/toggle"
+import { Navigation } from "@/components/navigation";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toggle } from "@/components/toggle";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -23,19 +25,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-[1440px] mx-auto`}
+        className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} antialiased max-w-[1440px] mx-auto`}
       >
-         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navigation />
-            <main className=" mx-auto px-3 md:px-12">
-            {children}
-            </main>
-       
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navigation />
+          <main className=" mx-auto px-3 md:px-12">{children}</main>
         </ThemeProvider>
       </body>
     </html>
