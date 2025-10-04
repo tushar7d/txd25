@@ -76,7 +76,7 @@ const Heading = ({ children }) => {
 const CaseStudyCard = ({ href, children, showLock = false }) => {
   return (
     <Link href={href}>
-      <div className="flex flex-col justify-between p-0 transition duration-300 ease-out cursor-pointer w-full h-[500px] bg-gray-100 dark:bg-white/5 rounded-xl p-6 overflow-hidden group hover:scale-105">
+      <div className="flex flex-col justify-between  transition duration-300 ease-out cursor-pointer w-full h-[500px] bg-gray-100 dark:bg-white/5 rounded-xl p-6 overflow-hidden group hover:scale-105">
         {showLock && <Locked />}
         {children}
       </div>
@@ -270,6 +270,36 @@ export default function Home() {
               </div>
             </a>{" "}
           </h1>
+          <div className="grid grid-cols-1  md:grid-cols-3 gap-4 ">
+
+             <FadeIn delay={0.2}>
+        <ExpansionInd />
+      </FadeIn>
+   
+      <FadeIn delay={0.4}>
+        <RevWealthPro />
+      </FadeIn>
+
+      <FadeIn delay={0.5}>
+        <ZomTrack />
+      </FadeIn>
+
+
+
+
+          </div>
+        </section>
+        <section>
+          <h1 className=" font-mono mb-6  text-xl ">
+            FEATURED /{" "}
+            <a href="/work">
+              {" "}
+              <div className="inline-flex gap-2 justify-baseline group">
+                <div>WORK</div>{" "}
+                <ArrowRight className="transition-transform duration-200 group-hover:translate-x-2.5" />
+              </div>
+            </a>{" "}
+          </h1>
           <div className="grid grid-cols-1  md:grid-cols-2 gap-4 ">
             {featuredWork.length > 0 ? (
               featuredWork.map((item) => (
@@ -277,7 +307,7 @@ export default function Home() {
                   key={item.id}
                   href={`/work/${encodeURIComponent(item.slug)}`}
                 >
-                  <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 h-[200px] flex flex-col justify-between hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                  <div className="bg-gray-100 dark:bg-white/5  rounded-xl p-6 h-[200px] flex flex-col justify-between hover:bg-gray-200 dark:hover:bg-white/8 transition-colors">
                     <div>
                       <h3 className="font-semibold text-lg mb-2">
                         {item.frontmatter.title}
@@ -303,7 +333,7 @@ export default function Home() {
                 </Link>
               ))
             ) : (
-              <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 h-[200px] flex items-center justify-center col-span-2">
+              <div className="bg-gray-100 dark:bg-white/5  rounded-xl p-6 h-[200px] flex items-center justify-center col-span-2">
                 <p className="text-gray-500">No featured work available</p>
               </div>
             )}
@@ -327,7 +357,7 @@ export default function Home() {
                   key={item.id}
                   href={`/writing/${encodeURIComponent(item.slug)}`}
                 >
-                  <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 h-[200px] flex flex-col justify-between hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                  <div className="bg-gray-100 dark:bg-white/5  rounded-xl p-6 h-[200px] flex flex-col justify-between hover:bg-gray-200 dark:hover:bg-white/8 transition-colors">
                     <div>
                       <h3 className="font-semibold text-lg mb-2">
                         {item.frontmatter.title}
@@ -352,7 +382,7 @@ export default function Home() {
                 </Link>
               ))
             ) : (
-              <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 h-[200px] flex items-center justify-center col-span-2">
+              <div className="bg-gray-100 dark:bg-white/5  rounded-xl p-6 h-[200px] flex items-center justify-center col-span-2">
                 <p className="text-gray-500">No featured writing available</p>
               </div>
             )}
@@ -360,12 +390,7 @@ export default function Home() {
         </section>
       </div>
 
-      <section className="max-w-[1140px] mx-auto mt-24 md:px-0 z-10 text-black dark:text-white">
-        <FadeIn delay={0.5}>
-          <Heading className="mt-12">Case studies</Heading>
-          <SectionCasestudy />
-        </FadeIn>
-      </section>
+  
     </>
   );
 }
