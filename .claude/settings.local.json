@@ -6,7 +6,8 @@
       "WebFetch(domain:txd25.vercel.app)",
       "Read(//Users/tushar/.ssh/**)",
       "Bash(ssh:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

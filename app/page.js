@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { getAllWorkContent, getAllWritingContent } from "@/lib/content-utils";
 import { ArrowRight } from "lucide-react";
+import { SpinningText } from "@/components/ui/spinning-text";
 
 const FadeIn = ({
   children,
@@ -59,19 +60,13 @@ const Locked = () => {
 const CardHeader = ({ t, b }) => {
   return (
     <div className="mt-12 text-center h-[150px]">
-      <div className="mb-1 text-xl text-gray-600 dark:text-gray-300">{t}</div>
+      <div className="mb-1 text-xl font-medium uppercase text-gray-600 dark:text-gray-300">{t}</div>
       <div className="font-serif text-4xl font-bold text-gray-900 dark:text-gray-100">{b}</div>
     </div>
   );
 };
 
-const Heading = ({ children }) => {
-  return (
-    <div className="my-12 mt-24 font-serif text-6xl font-bold text-center text-black dark:text-white">
-      {children}
-    </div>
-  );
-};
+
 
 const CaseStudyCard = ({ href, children, showLock = false }) => {
   return (
@@ -193,31 +188,7 @@ const RevWealthPro = () => {
   );
 };
 
-const SectionCasestudy = () => {
-  return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <FadeIn delay={0.2}>
-        <ExpansionInd />
-      </FadeIn>
-      <FadeIn delay={0.3}>
-        <RevSnap />
-      </FadeIn>
-      <FadeIn delay={0.4}>
-        <RevWealthPro />
-      </FadeIn>
 
-      <FadeIn delay={0.2}>
-        <ZomTrack />
-      </FadeIn>
-      <FadeIn delay={0.3}>
-        <ExpCar />
-      </FadeIn>
-      <FadeIn delay={0.4}>
-        <ZomPartner />
-      </FadeIn>
-    </div>
-  );
-};
 
 export default function Home() {
   const [workContent, setWorkContent] = useState([]);
@@ -245,19 +216,28 @@ export default function Home() {
   return (
     <>
       <div className="p-3 md:p-4 flex  flex-col gap-24 ">
-        <section className="mt-12">
-          <h1 className=" font-mono mb-6  text-xl font-medium text-orange-400 ">
-            INTRO
+        <section className="mt-12 flex gap-6 justify-between items-center">
+          <div>
+             <h1 className=" mb-6  text-3xl font-serif font-medium text-orange-400 ">
+            Intro
           </h1>
-          <p className=" max-w-[900px] text-4xl font-medium  md:text-5xl/14  ">
+          <p className=" max-w-[900px] text-4xl font-medium  md:text-4xl/12  ">
             Designer and developer, who creates inovative products and experiences
             that drive growth
           </p>
-          <p className="mt-4 text-2xl/9 max-w-2/3">
+          <p className="mt-4 text-xl/6 max-w-2/3">
             In the past 12 years I have partnered with industry leaders like
             Revolut, Expedia, Zomato, MakeMyTrip and currently Infoedge to deliver
             products that matter
           </p>
+          </div>
+          <div className="relative w-[300px] h-[300px] mr-6 flex items-center justify-center">
+            <div className="absolute inset-0">
+              <SpinningText radius={10} duration={20} className="w-full h-full text-xl font-bold z-0">TUSHAR DEBNATH • PRODUCT DESIGNER •</SpinningText>
+            </div>
+            <img src="/images/pic.png" className="w-[200px] h-[200px] rounded-full object-cover z-10" />
+          </div>
+         
         </section>
         <section>
           <h1 className=" font-mono mb-6  text-xl ">
