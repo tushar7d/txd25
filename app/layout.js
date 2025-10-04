@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Navigation } from "@/components/navigation";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Toggle } from "@/components/toggle";
+
 
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -66,7 +66,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${recoleta.variable} antialiased max-w-[1440px] mx-auto overflow-y-auto no-scrollbar`}
+        className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${recoleta.variable} antialiased overflow-y-auto no-scrollbar`}
       >
         <ThemeProvider
           attribute="class"
@@ -74,8 +74,10 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <Navigation />
-          <main className=" mx-auto px-3 md:px-12">{children}</main>
+          <div className="max-w-[1440px] mx-auto">
+            <Navigation />
+            <main className="mx-auto px-3 md:px-12">{children}</main>
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
-      "WebFetch(domain:txd25.vercel.app)"
+      "WebFetch(domain:txd25.vercel.app)",
+      "Read(//Users/tushar/.ssh/**)",
+      "Bash(ssh:*)",
+      "Bash(git remote set-url:*)"
     ],
     "deny": [],
     "ask": []
