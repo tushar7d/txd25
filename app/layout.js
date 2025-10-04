@@ -75,7 +75,9 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <div className="max-w-[1440px] mx-auto">
-            <Navigation />
+            <div className="sticky top-0 z-50 bg-background">
+              <Navigation />
+            </div>
             <main className="mx-auto px-3 md:px-12">{children}</main>
           </div>
         </ThemeProvider>
