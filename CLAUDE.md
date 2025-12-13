@@ -60,21 +60,59 @@ Both listing pages use `getAllWorkContent()` / `getAllWritingContent()` to displ
   - `@/lib` → `lib/`
   - `@/hooks` → `hooks/`
 - **Content Schema**: PocketBase collections support fields (title, description, date, tags, author, readingTime, content, slug, featured, status)
-- **Environment**: Requires `NEXT_PUBLIC_POCKETBASE_URL` environment variable for PocketBase connection
-- **PocketBase Configuration**: Currently using `https://pb.endersmoon.in/` with API access enabled for content retrieval
+- **Environment**: Requires `.env.local` file with `NEXT_PUBLIC_POCKETBASE_URL` environment variable
+- **PocketBase Configuration**: Currently using `https://pb.endersmoon.in/` with public API access for client-side content retrieval
+
+## Environment Setup
+
+Create a `.env.local` file in the project root:
+
+```env
+NEXT_PUBLIC_POCKETBASE_URL=https://pb.endersmoon.in/
+```
+
+This environment variable is required for the PocketBase client to connect to the backend.
+
+## PocketBase Setup
+
+### Collection Schema
+
+Both `work` and `writing` collections require these fields:
+- `slug` (text, unique, required)
+- `title` (text, required)
+- `description` (text)
+- `date` (date)
+- `author` (text)
+- `tags` (json/select - multiple)
+- `readingTime` (text)
+- `content` (editor/text - MDX content)
+- `featured` (bool, default: false)
+- `status` (text, default: "published")
+
+### API Rules for Client-Side Access
+
+For client-side fetching to work, both collections must have public read access:
+
+**`work` and `writing` collections:**
+- **List/Search rule**: Leave empty (allows public access)
+- **View rule**: Leave empty (allows public access)
+- **Create/Update/Delete rules**: Restrict as needed (e.g., `@request.auth.id != ""`)
+
+Empty API rules = public read access. This is required for client-side data fetching.
 
 ## Content Workflow
+
+### Data Fetching Strategy
+- **Homepage (`app/page.js`)**: Client-side rendering - fetches content dynamically using `useEffect`
+- **Dynamic pages**: May use server-side or static generation depending on route configuration
+- Content is fetched directly from PocketBase in real-time
+- Changes to PocketBase content appear immediately without requiring redeployment
 
 ### Development
 - Content is fetched dynamically from PocketBase during development
 - Changes to PocketBase content appear immediately in local dev server
 - Both work and writing collections are fully functional
-
-### Production Deployment
-- Site uses static site generation (SSG) for optimal performance
-- Content is fetched from PocketBase at build time and pre-rendered as static pages
-- After adding new content to PocketBase, redeploy the site to Vercel to regenerate static pages with latest content
-- This approach provides fast static performance while maintaining content management flexibility
+- Ensure PocketBase collections have public read access configured in API rules
 
 ### URL Handling
 - Dynamic routes properly handle URL encoding/decoding for slugs with spaces

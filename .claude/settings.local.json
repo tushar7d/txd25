@@ -7,7 +7,8 @@
       "Read(//Users/tushar/.ssh/**)",
       "Bash(ssh:*)",
       "Bash(git remote set-url:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
