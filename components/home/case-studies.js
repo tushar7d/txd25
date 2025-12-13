@@ -1,7 +1,7 @@
 import { CaseStudyCard, CardHeader, ImageStack } from "./case-study-card";
 
 export const ExpansionInd = () => (
-  <CaseStudyCard href="/work/expansion-india">
+  <CaseStudyCard href="/work/test">
     <CardHeader company="Revolut" title="Building for India" />
     <ImageStack imageSrc="/images/inlaunch1.png" variant="default" />
   </CaseStudyCard>
