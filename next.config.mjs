@@ -4,10 +4,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "pb.endersmoon.in",
+        hostname: "cdn.sanity.io",
       },
     ],
   },
+  transpilePackages: ['next-sanity'],
+  serverExternalPackages: ['jsdom', 'isomorphic-dompurify'],
 };
 
 export default nextConfig;

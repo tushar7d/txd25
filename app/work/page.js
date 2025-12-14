@@ -1,6 +1,8 @@
-
 import Link from 'next/link'
 import { getAllWorkContent } from '@/lib/content-utils'
+
+// On-demand revalidation via webhook (fallback: 1 hour)
+export const revalidate = 3600;
 
 export default async function Work() {
   const posts = await getAllWorkContent()

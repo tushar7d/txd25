@@ -8,7 +8,14 @@
       "Bash(ssh:*)",
       "Bash(git remote set-url:*)",
       "Bash(cat:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npx sanity init)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs:*)",
+      "Bash(npx next dev)",
+      "Bash(openssl rand:*)"
     ],
     "deny": [],
     "ask": []
