@@ -72,18 +72,10 @@ export default defineType({
     }),
     defineField({
       name: 'content',
-      title: 'Content (MDX)',
-      type: 'code',
-      description: 'Write your content in Markdown/MDX format with syntax highlighting',
-      options: {
-        language: 'markdown',
-        languageAlternatives: [
-          { title: 'Markdown', value: 'markdown' },
-          { title: 'MDX', value: 'mdx' },
-          { title: 'Plain Text', value: 'text' }
-        ],
-        withFilename: false
-      }
+      title: 'Content',
+      type: 'text',
+      description: 'Write your content in Markdown/MDX format',
+      rows: 20
     })
   ],
   preview: {
