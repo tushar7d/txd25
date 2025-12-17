@@ -1,5 +1,6 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
+import { codeInput } from '@sanity/code-input'
 import { schemaTypes } from './schemas'
 
 export default defineConfig({
@@ -12,7 +13,8 @@ export default defineConfig({
   basePath: '/studio',
 
   plugins: [
-    structureTool()
+    structureTool(),
+    codeInput()
   ],
 
   schema: {
