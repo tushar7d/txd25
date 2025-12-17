@@ -4,8 +4,8 @@ import { StaticWorkSection } from "@/components/home/static-work-section";
 import { FeaturedContentSection } from "@/components/home/featured-content-section";
 
 // On-demand revalidation via webhook (no automatic time-based revalidation)
-// Falls back to 1 hour if webhook fails
-export const revalidate = 3600;
+// Falls back to 1 day if webhook fails
+export const revalidate = 86400;
 
 export default async function Home() {
   // Fetch data at build time (SSG) and revalidate periodically (ISR)

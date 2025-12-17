@@ -22,7 +22,8 @@
       "Bash(vercel whoami:*)",
       "Bash(printf:*)",
       "Bash(vercel env:*)",
-      "Bash(vercel link:*)"
+      "Bash(vercel link:*)",
+      "Bash(git remote:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { getAllWritingContent } from '@/lib/content-utils'
 
-// On-demand revalidation via webhook (fallback: 1 hour)
-export const revalidate = 3600;
+// On-demand revalidation via webhook (fallback: 1 day)
+export const revalidate = 86400;
 
 export default async function Writing() {
   const posts = await getAllWritingContent()
