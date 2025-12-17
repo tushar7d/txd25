@@ -18,7 +18,11 @@
       "Bash(openssl rand:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(vercel whoami:*)",
+      "Bash(printf:*)",
+      "Bash(vercel env:*)",
+      "Bash(vercel link:*)"
     ],
     "deny": [],
     "ask": []
