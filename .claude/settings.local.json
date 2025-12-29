@@ -23,7 +23,11 @@
       "Bash(printf:*)",
       "Bash(vercel env:*)",
       "Bash(vercel link:*)",
-      "Bash(git remote:*)"
+      "Bash(git remote:*)",
+      "Bash(ls:*)",
+      "Bash(npx sanity:*)",
+      "Bash(ln:*)",
+      "Bash(kill:*)"
     ],
     "deny": [],
     "ask": []

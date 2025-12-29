@@ -73,9 +73,8 @@ export default defineType({
     defineField({
       name: 'content',
       title: 'Content',
-      type: 'text',
-      description: 'Write your content in Markdown/MDX format',
-      rows: 20
+      type: 'markdown',
+      description: 'Write your content in Markdown/MDX format'
     })
   ],
   preview: {
@@ -87,8 +86,7 @@ export default defineType({
     prepare({ title, subtitle, featured }) {
       return {
         title,
-        subtitle: subtitle || '',
-        media: featured ? '⭐' : '📄'
+        subtitle: subtitle || ''
       }
     }
   }

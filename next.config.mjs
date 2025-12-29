@@ -8,7 +8,6 @@ const nextConfig = {
       },
     ],
   },
-  transpilePackages: ['next-sanity'],
   serverExternalPackages: ['jsdom', 'isomorphic-dompurify'],
 };
 
