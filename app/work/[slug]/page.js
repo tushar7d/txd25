@@ -47,7 +47,7 @@ export default async function WorkPage({ params }) {
           )}
         </header>
         
-        <div className="prose prose-lg max-w-none">
+        <div className="prose prose-xl max-w-none">
           <MDXRemote source={source} components={mdxComponents} />
         </div>
       </article>
