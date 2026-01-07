@@ -28,7 +28,13 @@
       "Bash(npx sanity:*)",
       "Bash(ln:*)",
       "Bash(kill:*)",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "Bash(find:*)",
+      "Bash(rm:*)",
+      "Bash(timeout 10 npm run dev:*)",
+      "Bash(chmod:*)",
+      "Bash(pkill:*)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": [],
     "ask": []
